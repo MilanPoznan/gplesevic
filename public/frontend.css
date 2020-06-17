@@ -297,3 +297,58 @@ template {
 [hidden] {
   display: none; }
 
+/*********************
+* Media query mixins *
+*********************/
+/****************
+* Layout mixins *
+****************/
+/*****************************************************************************
+ *
+ * CSS GRID MIXINS
+ *
+ ****************************************************************************/
+/*
+* GRID CONTAINER
+*
+* @usage:    include @grid-container(
+*                      grid-template-columns, grid-template-rows, grid-gap, grid-auto-columns, grid-auto-rows, grid-template-areas
+										 );
+*
+* @example:  include @grid-container( 2fr repeat( 3, 1fr), 150px, 15px 20px );
+*
+*/
+/*
+* GRID ITEM
+*
+* @usage:    include @grid-item( grid-column, grid-row, grid-area );
+*
+* @example:  include @grid-item( 2fr repeat( 3, 1fr), 150px, 15px 20px );
+*
+*/
+.hero {
+  width: 100%;
+  height: 70vh;
+  position: relative; }
+  .hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); }
+  .hero__bg {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; }
+  .hero h1 {
+    position: relative;
+    display: block;
+    z-index: 10;
+    color: #fff; }
+
