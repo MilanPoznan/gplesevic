@@ -1,2 +1,1 @@
-# gplesevic
-Custom theme for GP les
+Custom WordPress theme for GP LESEVIC

@@ -1,0 +1,11 @@
+# ignore theme directories
+node_modules
+
+# ignore generic files
+.DS_Store
+.npm-debug.log
+.jshintignore
+.jscsrc
+.idea
+*.js.map
+*.css.map
