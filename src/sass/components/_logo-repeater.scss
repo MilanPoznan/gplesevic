@@ -1,0 +1,16 @@
+.logo-rep {
+  padding: 0 5%;
+  &__wrapper {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &__single {
+    width: 18%;
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+}

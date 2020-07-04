@@ -357,14 +357,6 @@ h3 {
   letter-spacing: 3.3px;
   font-family: "Ubuntu", sans-serif;
   color: #000; }
-  h3:after {
-    content: '';
-    left: calc(50% - 40px);
-    bottom: -10px;
-    position: absolute;
-    width: 80px;
-    height: 4px;
-    background: #ffb400; }
 
 h4 {
   margin-bottom: 20px;
@@ -433,9 +425,7 @@ p {
     margin: 0 auto; }
   .content--large {
     max-width: 1200px;
-    margin: 0 auto; }
-  .page {
-    background-color: #828282; } }
+    margin: 0 auto; } }
 
 @media screen and (min-width: 1600px) {
   .wrapper {
@@ -462,7 +452,8 @@ p {
 
 @media screen and (min-width: 1200px) {
   .about-us {
-    padding: 0; }
+    padding: 0;
+    margin-bottom: 100px; }
     .about-us__wrapper {
       display: flex;
       justify-content: space-between; }
@@ -475,6 +466,81 @@ p {
         height: 10px; }
     .about-us__desc {
       width: 60%; } }
+
+.aktuelnosti {
+  position: relative;
+  padding: 0 5%; }
+  .aktuelnosti__wrapper h2 {
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 3.3px; }
+  .aktuelnosti__desc {
+    max-width: 80%;
+    width: 100%;
+    margin: 0 auto 40px;
+    text-align: center;
+    font-family: "Open Sans", sans-serif; }
+  .aktuelnosti__posts {
+    display: flex;
+    flex-flow: column; }
+  .aktuelnosti__post h3 {
+    margin-bottom: 10px;
+    letter-spacing: 1.5px; }
+  .aktuelnosti__post a {
+    text-decoration: none; }
+  .aktuelnosti__post p {
+    margin-top: 0;
+    font-size: 14px;
+    color: #828282; }
+  .aktuelnosti__post-image {
+    max-width: 100%; }
+    .aktuelnosti__post-image img {
+      width: 100%;
+      object-fit: contain; }
+  .aktuelnosti__post-info p {
+    text-decoration: none; }
+
+@media screen and (min-width: 1200px) {
+  .aktuelnosti {
+    margin-bottom: 100px; }
+    .aktuelnosti__wrapper {
+      display: flex;
+      flex-flow: row; }
+    .aktuelnosti__content {
+      max-width: 200px;
+      margin-right: 65px; }
+      .aktuelnosti__content h2 {
+        margin-top: 0; }
+    .aktuelnosti__desc {
+      text-align: left;
+      margin: 0; }
+    .aktuelnosti__posts {
+      flex-flow: row; }
+    .aktuelnosti__post {
+      position: relative;
+      width: 300px;
+      margin-right: 12px;
+      transition: all 0.3s ease 0s;
+      top: 0;
+      height: 380px;
+      overflow: hidden; }
+      .aktuelnosti__post:nth-child(3) {
+        margin-right: 0px; }
+      .aktuelnosti__post-info {
+        opacity: 0; }
+      .aktuelnosti__post h3 {
+        line-height: normal;
+        letter-spacing: 2.3px; }
+      .aktuelnosti__post:hover {
+        top: -20px;
+        height: 100%; }
+        .aktuelnosti__post:hover .aktuelnosti__post-info {
+          opacity: 1; }
+    .aktuelnosti__post-image {
+      height: 380px; }
+      .aktuelnosti__post-image img {
+        height: 100%;
+        object-fit: cover; } }
 
 .hero {
   width: 100%;
@@ -511,6 +577,19 @@ p {
     color: #fff;
     z-index: 10; }
 
+.logo-rep {
+  padding: 0 5%; }
+  .logo-rep__wrapper {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+  .logo-rep__single {
+    width: 18%; }
+    .logo-rep__single img {
+      width: 100%;
+      object-fit: contain; }
+
 .projects {
   display: flex;
   flex-flow: column;
@@ -538,10 +617,12 @@ p {
       color: #fff;
       overflow: hidden;
       transition: 0.5s; }
-      .projects__wrapper a p {
-        position: relative;
-        z-index: 10;
-        margin-left: 16px; }
+  .projects__project-title {
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+    margin-left: 16px;
+    color: #fff; }
   .projects__single-wrapp {
     position: relative;
     margin: 10px 0;

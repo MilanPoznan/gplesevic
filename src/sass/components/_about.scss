@@ -21,6 +21,7 @@
 @include desktop() {
   .about-us {
     padding: 0;
+    margin-bottom: 100px;
     &__wrapper {
       display: flex;
       justify-content: space-between;

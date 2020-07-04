@@ -25,12 +25,15 @@
       color: $white;
       overflow: hidden;
       transition: 0.5s;
-      p {
-        position: relative;
-        z-index: 10;
-        margin-left: 16px;
-      }
+  
     }
+  }
+  &__project-title {
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+    margin-left: 16px;
+    color: $white;
   }
   &__single-wrapp {
     position: relative;

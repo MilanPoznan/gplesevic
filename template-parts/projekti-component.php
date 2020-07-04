@@ -8,11 +8,12 @@
       <div class="projects__single-wrapp">
         <a href="<?php the_sub_field('project_url'); ?>" class="projects__single" style="background-image: url('<?php the_sub_field('project_image'); ?>')">
           <div class="projects__overlay"></div>
-          <p><?php the_sub_field('project_title') ?></p>
         </a>
+        <p class="projects__project-title"><?php the_sub_field('project_title') ?></p>
       </div>
 
     <?php endwhile; ?>
+
     </div>
     <?php endif; ?>
 </section>

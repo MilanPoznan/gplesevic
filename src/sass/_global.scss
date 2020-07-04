@@ -51,15 +51,15 @@ h3 {
   letter-spacing: 3.3px;
 	font-family: $mainFont;
 	color: $black-dark;
-	&:after {
-		content: '';
-		left: calc(50% - 40px);
-		bottom: -10px;
-		position: absolute;
-		width: 80px;
-		height: 4px;
-		background: $yellow;
-	}
+	// &:after {
+	// 	content: '';
+	// 	left: calc(50% - 40px);
+	// 	bottom: -10px;
+	// 	position: absolute;
+	// 	width: 80px;
+	// 	height: 4px;
+	// 	background: $yellow;
+	// }
 }
 h4 {
 	margin-bottom: 20px;
@@ -152,7 +152,7 @@ p {
 		}
 	}
 	.page {
-		background-color: $grey;
+		// background-color: $grey;
 	}
 }
 @include desktop-lg() {
