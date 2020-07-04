@@ -1,0 +1,41 @@
+.about-us {
+  position: relative;
+  padding: 0 5%;
+  h1 {
+    position: relative;
+    height: fit-content;
+    margin-bottom: 50px;
+    &::after {
+      content: '';
+      left: 0;
+      bottom: -25px;
+      position: absolute;
+      width: 65px;
+      height: 10px;
+      background: $yellow;
+      border-radius: 3px;
+	  }
+  }
+
+}
+@include desktop() {
+  .about-us {
+    padding: 0;
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+    h1 {
+      max-width: 200px;
+      width: 100%;
+      &::after {
+        bottom: -20px;
+        width: 85px;
+        height: 10px;
+    }
+    }
+    &__desc {
+      width: 60%;
+    }
+  }
+}

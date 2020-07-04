@@ -1,0 +1,86 @@
+.projects {
+  display: flex;
+  flex-flow: column;
+  padding: 0 5%;
+  margin-bottom: 50px;
+
+  h2 {
+    text-align: center;
+  }
+  &__wrapper {
+    display: grid;
+    grid-template-rows: repeat(3, 30vh [services]);
+    position: relative;
+    a {
+      position: relative;
+      height: 100%;
+      margin: 10px 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      @include bgImage();
+      text-decoration: none;
+      font-family: $mainFont;
+      font-size: 22px;
+      color: $white;
+      overflow: hidden;
+      transition: 0.5s;
+      p {
+        position: relative;
+        z-index: 10;
+        margin-left: 16px;
+      }
+    }
+  }
+  &__single-wrapp {
+    position: relative;
+    margin: 10px 0;
+    width: 100%;
+    overflow: hidden;
+    &:hover {
+      a {
+        transform: scale(1.1);
+      }
+    }
+  }
+  &__overlay {
+    @include absoluteFullSize();
+    background: rgba(0,0,0, 0.4);
+  }
+}
+
+@include desktop() {
+
+  .projects {
+    margin-bottom: 100px;
+    h2 {
+      margin-bottom: 52px;
+    }
+    &__wrapper {
+      grid-template-rows: repeat(3, 30vh [services]);
+      grid-template-columns: 1fr 20px 1fr;
+      grid-template-rows: auto;
+      grid-template-areas: 
+      "bigImage space smallImage"
+      "bigImage space smallImage2";
+    }
+    &__single-wrapp {
+      margin: 0;
+      &:nth-child(1) {
+        grid-area: bigImage;
+        height: 600px;
+      }
+      &:nth-child(2) {
+        grid-area: smallImage;
+        margin-bottom: 12px;
+      }
+      &:nth-child(3) {
+        grid-area: smallImage2;
+      }
+      a {
+        margin: 0;
+      }
+    }
+
+  }
+}

@@ -1,4 +1,12 @@
-@import "./normalize";
-@import "./meida-mixins";
 @import "./layout-mixins";
+@import "./meida-mixins";
+@import "./font-families";
+@import "./normalize";
+@import "./colors";
+@import "./global";
+
+//Components
+@import "components/about";
 @import "components/hero";
+@import "components/projects";
+@import "components/services-component";
