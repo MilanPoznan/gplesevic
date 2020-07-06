@@ -1,6 +1,4 @@
-<?php 
-
-
+<?php
 ?>
 <section class="hero">
   <!-- <div class="hero__overlay" style="background-image: url(<?php echo get_template_directory_uri() . '/assets/img/home-page-hero.svg'; ?>)"></div> -->

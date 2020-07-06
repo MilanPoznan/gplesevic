@@ -2,7 +2,7 @@
   <div class="aktuelnosti__wrapper">
     <div class="aktuelnosti__content">
       <h2>Aktuelnosti</h2>
-      <div class="aktuelnosti__desc"><?php the_sub_field('description') ?></div>
+      <div class="aktuelnosti__desc"><?php the_sub_field('description'); ?></div>
     </div>
     <div class="aktuelnosti__posts">
       <div class="aktuelnosti__post">

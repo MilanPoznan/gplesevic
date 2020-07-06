@@ -21,5 +21,5 @@
       </div>
     <?php endif;
     ?>
-  </>
+  <!-- </> -->
 </section>

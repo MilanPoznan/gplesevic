@@ -1,0 +1,57 @@
+.clients {
+  margin-bottom: 60px;
+  padding: 0 5%;
+  text-align: center;
+  &__subtitle {
+    color: $grey;
+    margin-bottom: 40px;
+  }
+}
+
+@include tablet() {
+
+  .clients{
+
+    h2 {
+      max-width: 60%;
+      margin: 0 auto;
+    }
+    
+    &__testemonials {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      
+      p {
+        width: 42%;
+      }
+    }
+  }
+}
+
+@include desktop() {
+
+  .clients{
+    margin-bottom: 200px;
+
+    &__wrapper{
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    &__subtitle {
+      max-width: 600px;
+      margin: 20px auto 67px;
+    }
+
+    &__testemonials {
+      display: flex;
+      justify-content: space-between;
+
+      p {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  }
+}
