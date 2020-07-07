@@ -9,15 +9,15 @@ h1 {
 	width: 80%;
   color: $black-dark;
   font-family: $mainFont;
-	// &::after {
-	// 	content: '';
-	// 	left: 0;
-	// 	bottom: -25px;
-	// 	position: absolute;
-	// 	width: 85px;
-	// 	height: 15px;
-	// 	background: $blue;
-	// }
+	&::after {
+		content: '';
+		left: 0;
+		bottom: -25px;
+		position: absolute;
+		width: 85px;
+		height: 15px;
+		background: $yellow;
+	}
 
 }
 h1.light {
@@ -122,9 +122,9 @@ p {
 		line-height: 52px;
 
 		&::after {
-			width: 180px;
-			height: 20px;
-			bottom: -40px;
+			width: 100px;
+			height: 10px;
+			bottom: -15px;
 		}
 	}
 	h2 {

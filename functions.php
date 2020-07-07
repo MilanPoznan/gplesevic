@@ -126,8 +126,10 @@ function _s_scripts() {
 
 	// Loads bundled frontend CSS.
 	wp_enqueue_style( '_s-frontend-styles', get_stylesheet_directory_uri() . '/public/frontend.css' );
-
-	wp_enqueue_script( '_s-frontend-scripts', get_template_directory_uri() . '/public/frontend-bundle.js', array(), null, true );
+	wp_deregister_script( 'jquery' );
+	wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', NULL, '3.4.1', true);
+	wp_enqueue_script( '_s-frontend-scripts', get_template_directory_uri() . '/public/frontend-bundle.js', array('jquery'), null, true );
+	wp_enqueue_script( 'archive', get_template_directory_uri() . '/src/js/archive-project.js', array(), '1.0.0', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -164,6 +166,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 
 
 
+
 //Create new post types - Projects
 function create_posttype() {
   register_post_type( 'projects',
@@ -186,12 +189,20 @@ function create_posttype() {
       'has_archive' => true,
       'show_in_rest' => true,
 			'taxonomies'  => array( 'category' ),
-      'supports' => array('title', 'editor'),
+      'supports' => array('title', 'editor', 'thumbnail'),
     )
   );
 }
 add_action( 'init', 'create_posttype' );
 
+ 
+function get_post_meta_for_api( $object ) {
+    //get the id of the post object array
+    $post_id = $object['id'];
+ 
+    //return the post meta
+    return get_post_meta( $post_id );
+}
 /**
  * Grab latest post title by an author!
  *
@@ -205,9 +216,7 @@ function get_latest_posts( $data ) {
   }
   return $posts;
 }
-function get_all_projects_categories() {
 
-}
 function get_latest_projects() {
 	$args = array(
 		'post_type' => 'projects',
@@ -217,15 +226,48 @@ function get_latest_projects() {
 	$posts = new WP_Query( $args );
 	return $posts;
 }
+function get_latest_projects_visokogradnja() {
+
+		$visokogradnja_query = new WP_Query( 
+			array( 
+			'post_type' => 'projects',
+			'category_name' => 'visokogradnja',
+			'posts_per_page' => -1 ) 
+		);
+		wp_reset_query();
+		return $visokogradnja_query;
+}
+function get_latest_projects_niskogradnja() {
+
+	$niskogradnja_query = new WP_Query( 
+		array( 'post_type' => 'projects','category_name' => 'niskogradnja','posts_per_page' => -1 ) 
+	);
+	wp_reset_query();
+	return $niskogradnja_query;
+}
+function get_latest_projects_arhitektura() {
+
+	$arhitektura_query = new WP_Query( 
+		array( 'post_type' => 'projects','category_name' => 'arhitektura','posts_per_page' => -1 ) 
+	);
+	wp_reset_query();
+	return $arhitektura_query;
+}
+
 //Register REST route for latest posts
 function register_post_rest_route() {
-	register_rest_route('myprojects/v1', 'get-posts', array(
+
+	register_rest_route('myprojects/v1', 'get-projects-visokogradnja', array(
 		'methods' => 'GET',
-		'callback' => 'get_latest_posts'
+		'callback' => 'get_latest_projects_visokogradnja'
 	));
-	register_rest_route('myprojects/v1', 'get-projects', array(
+	register_rest_route('myprojects/v1', 'get-projects-niskogradnja', array(
 		'methods' => 'GET',
-		'callback' => 'get_latest_projects'
+		'callback' => 'get_latest_projects_niskogradnja'
+	));
+	register_rest_route('myprojects/v1', 'get-projects-arhitektura', array(
+		'methods' => 'GET',
+		'callback' => 'get_latest_projects_arhitektura'
 	));
 }
 add_action('rest_api_init', 'register_post_rest_route');

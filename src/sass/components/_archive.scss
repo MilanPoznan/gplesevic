@@ -1,0 +1,13 @@
+.archive {
+  .hero {
+    max-height: 50vh;
+    &__bg {
+      align-items: flex-start;
+      h1 {
+        text-align: left;
+        text-transform: unset;
+        color: $black;
+      }
+    }
+  }
+}
