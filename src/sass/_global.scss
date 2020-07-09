@@ -12,10 +12,10 @@ h1 {
 	&::after {
 		content: '';
 		left: 0;
-		bottom: -25px;
+		bottom: -20px;
 		position: absolute;
 		width: 85px;
-		height: 15px;
+		height: 8px;
 		background: $yellow;
 	}
 
@@ -62,7 +62,7 @@ h3 {
 	// }
 }
 h4 {
-	margin-bottom: 20px;
+	margin: 10px 0;
 	font-size: 18px;
 	line-height: 22px;
 	letter-spacing: 2px;

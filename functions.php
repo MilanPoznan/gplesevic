@@ -129,8 +129,13 @@ function _s_scripts() {
 	wp_deregister_script( 'jquery' );
 	wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', NULL, '3.4.1', true);
 	wp_enqueue_script( '_s-frontend-scripts', get_template_directory_uri() . '/public/frontend-bundle.js', array('jquery'), null, true );
-	wp_enqueue_script( 'archive', get_template_directory_uri() . '/src/js/archive-project.js', array(), '1.0.0', true );
 
+	if (is_post_type_archive('projects')) {
+		wp_enqueue_script( 'archive', get_template_directory_uri() . '/src/js/archive-project.js', array(), '1.0.0', true );
+	}
+	if ( is_singular('projects')) {
+		wp_enqueue_script( 'gallery', get_template_directory_uri() . '/src/js/gallery.js', array(), '1.0.0', true );
+	}
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -215,6 +220,34 @@ function get_latest_posts( $data ) {
     return null;
   }
   return $posts;
+}
+function get_latest_prodaja_posts() {
+	$prodaja_query = new WP_Query( 
+		array( 
+		'post_type' => 'projects',
+		'category_name' => 'prodaja',
+		'posts_per_page' => 3 ) 
+	);
+	wp_reset_query();
+	$latest_posts = $prodaja_query->posts;
+	
+	foreach ( $latest_posts as $post ) {
+		$lp_id = $post->ID;
+		$lp_title = $post->post_title;
+		$lp_content = substr($post->post_content, 0, 50);
+		$lp_link = get_permalink($lp_id);
+		$lp_featured_media = get_the_post_thumbnail_url($lp_id, 'medium');
+	?>
+	<div class="latest-prodaja">
+		<img src="<?php echo $lp_featured_media; ?>"/>
+		<h4><?php echo $lp_title; ?></h4>
+		<p><?php echo $lp_content; ?></p>
+		<a href="<?php echo $lp_link; ?>">Detaljnije</a>
+	</div>
+
+	<?php
+	}
+	// return $latest_posts;
 }
 
 function get_latest_projects() {
