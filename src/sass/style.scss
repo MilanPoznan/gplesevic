@@ -19,3 +19,10 @@
 @import "components/project-archive";
 @import "components/services-component";
 @import "components/single-projects";
+@import "./global";
+@import "./helpers";
+@import "./buttons-links";
+
+// Pages
+@import "./blog";
+@import "./single-post";
