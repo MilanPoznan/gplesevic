@@ -95,7 +95,10 @@ p {
 	height: 100%;
 
 }
-
+p.strong {
+	font-family: $mainFont;
+	font-weight: bold;
+}
 @include tablet() {
 	.wrapper {
 		padding: 0 7%;
@@ -143,7 +146,7 @@ p {
 	}
 	.content {
 		&--mid {
-			max-width: 840px;
+			max-width: 900px;
 			margin: 0 auto;
 		}
 		&--large {

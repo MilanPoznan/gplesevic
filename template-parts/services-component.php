@@ -1,5 +1,5 @@
-<section class="services content--mid">
-  <div class="services__wrapper">
+<section class="services">
+  <div class="services__wrapper content--mid">
   <h2><?php the_sub_field('service_title') ?></h2>
     <?php 
       if( have_rows('services') ):

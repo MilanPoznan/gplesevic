@@ -8,8 +8,12 @@
       <div class='clients__testemonials'>
     
         <?php while(have_rows('best_testimonials')): the_row(); ?>
-    
+        <div class='clients__testemonials-wrap'>
+          <a href="<?php the_sub_field('logo'); ?>">
+            <img src="<?php the_sub_field('logo'); ?>" />
+          </a>
           <p><?php the_sub_field('text'); ?></p>
+        </div>
     
         <?php endwhile; ?>
     

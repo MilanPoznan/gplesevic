@@ -6,7 +6,11 @@
  *
  * @package _s
  */
-
+function cc_mime_types($mimes) {
+	$mimes['svg'] = 'image/svg+xml';
+	return $mimes;
+ }
+ add_filter('upload_mimes', 'cc_mime_types');
 if ( ! function_exists( '_s_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.

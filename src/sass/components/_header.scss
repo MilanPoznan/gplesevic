@@ -30,7 +30,7 @@
   }
   &__menu {
     position: absolute;
-		// background: $light-grey;
+		background: $white;
 		width: 0;
 		top: 60px;
 		right: 0;
@@ -50,9 +50,9 @@
   }
 }
 .menu {
-  text-align: center;
+  // text-align: center;
   li {
-    margin: 20px auto;
+    // margin: 20px auto;
   }
   .current_page_item{
     // font-family: $montserrat-bold;    
@@ -80,6 +80,14 @@
     bottom: -22px;
   }
 }
+
+
+@include tablet() {
+  .header {
+    width: calc(100% - 10%);
+  }
+}
+
 
 @include desktop() {
   

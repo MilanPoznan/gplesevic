@@ -1,10 +1,26 @@
 .clients {
-  margin-bottom: 60px;
-  padding: 0 5%;
+
+  // margin-bottom: 60px;
+  padding: 0 5% 60px;
   text-align: center;
+  background-image: url('http://localhost:8888/lesevic/wp-content/uploads/2020/07/section-clients.svg');
+  background-position: 68% 0px;
+  padding-top: 170px;
   &__subtitle {
     color: $grey;
     margin-bottom: 40px;
+  }
+  &__testemonials-wrap{
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+    // text-decoration: none;
+    // color: $black;
+    img {
+      width: 80px;
+      height: auto;
+      margin: 20px auto 10px;
+    }
   }
 }
 
@@ -21,10 +37,13 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-evenly;
-      
-      p {
-        width: 42%;
-      }
+      // p {
+      //   width: 42%;
+      // }
+    }
+    &__testemonials-wrap{
+      width: 42%;
+
     }
   }
 }
@@ -32,8 +51,9 @@
 @include desktop() {
 
   .clients{
-    margin-bottom: 200px;
-
+    padding-bottom: 160px;
+    background-repeat: no-repeat;
+    background-size: cover;
     &__wrapper{
       max-width: 1000px;
       margin: 0 auto;
@@ -48,7 +68,7 @@
       display: flex;
       justify-content: space-between;
 
-      p {
+      &-wrap {
         width: 100%;
         max-width: 300px;
       }

@@ -22,17 +22,12 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'void' ); ?></a>
 
 	<header id="masthead" class="header">
 		<div class="header__logo" >
 			<img id="header-logo-img" src="http://development.voidpictures.com/wp-content/uploads/2019/08/logo-black.png" >
 			<a href="<?php echo get_home_url() ?>/" id="header-logo">
 			</a>
-			<!-- <img src="" />			 -->
-			<?php
-			// the_custom_logo();
-			?>
 		</div><!-- .site-branding -->
 		<div class="header__hamburger-wrapp hamburger-wrapp">
 			<div class="header__hamburger hamburger"></div>
