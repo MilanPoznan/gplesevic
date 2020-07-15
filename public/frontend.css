@@ -1795,7 +1795,8 @@ a {
   .single-post-wrapper .single-post-content .single-post-header {
     padding-bottom: 30px; }
   .single-post-wrapper .single-post-content .post-meta {
-    margin: 21px 0 41px; }
+    margin: 21px 0 41px;
+    font-family: "Ubuntu", sans-serif; }
 
 .single-post-wrapper .single-post-related .related-list {
   list-style: none;
