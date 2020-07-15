@@ -1,8 +1,14 @@
 <?php
 
 get_header(); ?>
-
+<section class="hero">
+  <div class="hero__overlay"></div>
+  <div class="hero__bg" style="background-image: url('<?php the_field('aktivnosti_bg'); ?>')"> 
+    <h1>Aktivnosti</h1>
+  </div>
+</section>
 <section class="container container--narrow">
+
     <div class="blog-section">
         <?php
             while(have_posts()) {

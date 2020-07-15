@@ -1,10 +1,12 @@
 .logo-rep {
   padding: 20px 5%;
+  background-color: $grey-light;
   &__wrapper {
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
     justify-content: center;
+    
   }
   &__single {
     width: 30%;
@@ -27,7 +29,7 @@
 @include desktop() {
   .logo-rep {
     
-    padding: 0;
+    padding: 0 0 80px;
     &__single {
       width: 18%;
     }

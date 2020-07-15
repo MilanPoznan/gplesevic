@@ -11,7 +11,7 @@
           $latest_posts_id = $latest_posts ->ID;
           $latest_posts_title = $latest_posts->post_title;
           $latest_posts_desc = $latest_posts->post_content;
-          $latest_posts_desc_cut = substr($latest_posts_desc,0, 50);
+          $latest_posts_desc_cut = substr($latest_posts_desc,0, 150);
           $latest_posts_image = get_the_post_thumbnail_url($latest_posts_id); 
           $latest_posts_url = get_permalink($latest_posts_id);
         ?>
@@ -31,7 +31,7 @@
           $latest_posts2_id = $latest_posts2->ID;
           $latest_posts2_title = $latest_posts2->post_title;
           $latest_posts2_desc = $latest_posts2->post_content;
-          $latest_posts2_desc_cut = substr($latest_posts2_desc,0, 50);
+          $latest_posts2_desc_cut = substr($latest_posts2_desc,0, 150);
           $latest_posts2_image = get_the_post_thumbnail_url($latest_posts2_id); 
           $latest_posts2_url = get_permalink($latest_posts2_id);
         ?>
@@ -51,7 +51,7 @@
           $latest_posts3_id = $latest_posts3->ID;
           $latest_posts3_title = $latest_posts3->post_title;
           $latest_posts3_desc = $latest_posts3->post_content;
-          $latest_posts3_desc_cut = substr($latest_posts3_desc,0, 50);
+          $latest_posts3_desc_cut = substr($latest_posts3_desc,0, 150);
           $latest_posts3_image = get_the_post_thumbnail_url($latest_posts3_id); 
           $latest_posts3_url = get_permalink($latest_posts3_id);
         ?>

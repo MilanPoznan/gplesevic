@@ -1,7 +1,7 @@
 .projects {
   display: flex;
   flex-flow: column;
-  padding: 0 5%;
+  padding: 34px 5%;
   margin-bottom: 50px;
 
   h2 {
@@ -52,13 +52,8 @@
   }
 }
 
-@include desktop() {
-
+@include tablet() {
   .projects {
-    margin-bottom: 100px;
-    h2 {
-      margin-bottom: 52px;
-    }
     &__wrapper {
       grid-template-rows: repeat(3, 30vh [services]);
       grid-template-columns: 1fr 20px 1fr;
@@ -84,6 +79,15 @@
         margin: 0;
       }
     }
+  }
+}
+@include desktop() {
 
+  .projects {
+    margin-bottom: 100px;
+    padding-top: 100px;
+    h2 {
+      margin-bottom: 52px;
+    }
   }
 }

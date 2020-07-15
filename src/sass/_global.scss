@@ -113,17 +113,18 @@ p {
 
 }
 
-// Paragraph styles
-
 p {
     margin: 0 0 16px 0;
-
     &.excerpt {
         font-size: 16px;
         line-height: 2;
     }
 }
 
+p.strong {
+	font-family: $mainFont;
+	font-weight: bold;
+}
 @include tablet() {
 	.wrapper {
 		padding: 0 7%;
@@ -181,7 +182,7 @@ p {
     }
 	.content {
 		&--mid {
-			max-width: 840px;
+			max-width: 900px;
 			margin: 0 auto;
 		}
 		&--large {
