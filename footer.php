@@ -16,7 +16,7 @@
 	<footer id="colophon" class="footer">
 		<div class="footer__wrapper">
 			<div class="footer__logo">
-				<img id="footer-logo-img" src="http://development.voidpictures.com/wp-content/uploads/2019/08/logo-black.png" >
+				<img id="footer-logo-img" src="<?php echo get_template_directory_uri();?>/assets/img/gp-lesevic-logo-footer.png" >
 			</div>
 			<div class="footer__info">
 				<p class="strong">Gradjevinska kompanija Lesevic</p>

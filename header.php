@@ -16,7 +16,9 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-
+	<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnjUlSYoGH1zSCEzDxQayvjP3ZGZ8bhso">
+	</script>
 	<?php wp_head(); ?>
 </head>
 
@@ -24,23 +26,23 @@
 <div id="page" class="site">
 
 	<header id="masthead" class="header">
-		<div class="header__logo" >
-			<img id="header-logo-img" src="http://development.voidpictures.com/wp-content/uploads/2019/08/logo-black.png" >
-			<a href="<?php echo get_home_url() ?>/" id="header-logo">
+		<div class="header__wrapper">
+			<a class="header__logo" href="<?php echo get_home_url() ?>/" id="header-logo">
+				<img id="header-logo-img" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-nav.png" >
 			</a>
-		</div><!-- .site-branding -->
-		<div class="header__hamburger-wrapp hamburger-wrapp">
-			<div class="header__hamburger hamburger"></div>
-		</div>
-		<div class="header__menu js-menu">
-			<nav id="site-navigation" class="navigation header__navi">
-				<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				) );
-				?>
-			</nav><!-- #site-navigation -->
+			<div class="header__hamburger-wrapp hamburger-wrapp">
+				<div class="header__hamburger hamburger"></div>
+			</div>
+			<div class="header__menu js-menu">
+				<nav id="site-navigation" class="navigation header__navi">
+					<?php
+					wp_nav_menu( array(
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
+					) );
+					?>
+				</nav><!-- #site-navigation -->
+			</div>
 		</div>
 	</header><!-- #masthead -->
 

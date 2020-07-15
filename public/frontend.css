@@ -654,6 +654,58 @@ p.strong {
         width: 100%;
         max-width: 300px; } }
 
+.acf-map {
+  width: 100%;
+  height: 400px;
+  border: #ccc solid 1px;
+  margin: 20px 0; }
+
+.acf-map img {
+  max-width: inherit !important; }
+
+.contact {
+  background-color: #f5f5f5; }
+  .contact_cf form {
+    max-width: 80%;
+    margin: 0 auto; }
+    .contact_cf form .cf-field {
+      border: none;
+      padding: 10px;
+      border-radius: 5px; }
+    .contact_cf form .wpcf7-submit {
+      width: 60%;
+      margin: 0 20%;
+      border: none;
+      background-color: #ffb400;
+      color: #fff;
+      text-align: center;
+      height: 40px;
+      font-family: "Ubuntu", sans-serif; }
+
+@media screen and (min-width: 768px) {
+  .contact form {
+    display: flex;
+    flex-flow: column;
+    align-items: center; }
+    .contact form .wpcf7-submit {
+      width: 240px;
+      height: 60px;
+      margin: 0; } }
+
+@media screen and (min-width: 768px) {
+  .contact__wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex; }
+  .contact__cf {
+    width: 50%; }
+  .contact__map {
+    max-width: 50%;
+    width: 100%; }
+  .contact form .wpcf7-submit {
+    width: 240px;
+    height: 60px; } }
+
 .footer__wrapper {
   padding: 40px 5% 20px;
   display: flex;
@@ -704,29 +756,22 @@ p.strong {
     .footer__info p {
       margin-top: 0; } }
 
-#header-logo {
-  position: absolute;
-  top: 0px;
-  width: 100px;
-  height: 40px;
-  display: flex;
-  z-index: 1000; }
-
 .header {
   height: 60px;
   width: calc(100% - 60px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 0 5%; }
+  .header__wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
   .header__logo {
-    height: 40px;
-    width: 140px;
     display: flex;
     position: relative; }
     .header__logo img {
       width: auto;
-      height: 40px; }
+      height: 50px; }
   .header__menu {
     position: absolute;
     background: #fff;
@@ -757,18 +802,23 @@ p.strong {
   text-transform: lowercase; }
   .menu-item-has-children ul li {
     text-transform: uppercase; }
-  .menu-item-has-children:after {
+  /* .menu-item-has-children:after {
     content: '';
     width: 80px;
     height: 10px;
     background: #23c4ff;
     position: absolute;
     left: calc(50% - 42px);
-    bottom: -22px; }
+    bottom: -22px; } */
 
 @media screen and (min-width: 768px) {
   .header {
-    width: calc(100% - 10%); } }
+    width: calc(100% - 10%);
+    height: 80px; }
+    .header__logo img {
+      position: relative;
+      height: 60px;
+      top: 5px; } }
 
 @media screen and (min-width: 1200px) {
   .menu .menu-item-has-children {
@@ -887,9 +937,12 @@ p.strong {
   .hero h1 {
     position: relative;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
     z-index: 10;
     color: #fff; }
+    .hero h1:after {
+      left: calc(50% - 42px);
+      bottom: -20px; }
   .hero p {
     color: #fff;
     z-index: 10; }
@@ -925,7 +978,7 @@ p.strong {
   width: 30px;
   height: 5px;
   border-radius: 5px;
-  background: #444444;
+  background: #ffb400;
   opacity: 0.9;
   position: relative;
   display: flex;
@@ -937,14 +990,15 @@ p.strong {
     width: 30px;
     height: 5px;
     border-radius: 5px;
-    background: #444444;
     opacity: 0.9;
     transition: 0.5s;
     border-radius: 5px; }
   .hamburger:before {
-    top: 10px; }
+    top: 10px;
+    background: #ffb400; }
   .hamburger:after {
-    bottom: 10px; }
+    bottom: 10px;
+    background: #ffb400; }
   .hamburger--is-active {
     height: 0; }
     .hamburger--is-active:before {
@@ -956,26 +1010,33 @@ p.strong {
 
 .menu {
   display: none;
-  text-align: center; }
-  .menu ul {
-    padding: 0; }
-    .menu ul li {
-      margin: 25px 0;
-      list-style: none; }
-      .menu ul li a {
-        position: relative;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-family: "Ubuntu", sans-serif;
-        color: #828282; }
-        .menu ul li a:before {
-          content: '';
-          position: absolute;
-          bottom: -8px;
-          height: 2px;
-          width: 100%;
-          height: 2px;
-          background-color: #ffb400; }
+  text-align: left;
+  padding: 0; }
+  .menu li {
+    margin: 25px 0;
+    list-style: none; }
+    .menu li a {
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-family: "Ubuntu", sans-serif;
+      color: #828282; }
+      .menu li a:before {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        height: 2px;
+        width: 100%;
+        height: 2px;
+        background-color: #ffb400; }
+    .menu li ul {
+      text-align: left;
+      padding-left: 10px; }
+      .menu li ul li a:before {
+        top: 8px;
+        left: -24px;
+        width: 12%;
+        background-color: #23c4ff; }
 
 #menu-item-111:hover,
 #menu-item-110:hover {
@@ -1052,29 +1113,31 @@ p.strong {
     height: 100%;
     background: rgba(0, 0, 0, 0.4); }
 
+@media screen and (min-width: 768px) {
+  .projects__wrapper {
+    grid-template-rows: repeat(3, 30vh [services]);
+    grid-template-columns: 1fr 20px 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "bigImage space smallImage" "bigImage space smallImage2"; }
+  .projects__single-wrapp {
+    margin: 0; }
+    .projects__single-wrapp:nth-child(1) {
+      grid-area: bigImage;
+      height: 600px; }
+    .projects__single-wrapp:nth-child(2) {
+      grid-area: smallImage;
+      margin-bottom: 12px; }
+    .projects__single-wrapp:nth-child(3) {
+      grid-area: smallImage2; }
+    .projects__single-wrapp a {
+      margin: 0; } }
+
 @media screen and (min-width: 1200px) {
   .projects {
     margin-bottom: 100px;
     padding-top: 100px; }
     .projects h2 {
-      margin-bottom: 52px; }
-    .projects__wrapper {
-      grid-template-rows: repeat(3, 30vh [services]);
-      grid-template-columns: 1fr 20px 1fr;
-      grid-template-rows: auto;
-      grid-template-areas: "bigImage space smallImage" "bigImage space smallImage2"; }
-    .projects__single-wrapp {
-      margin: 0; }
-      .projects__single-wrapp:nth-child(1) {
-        grid-area: bigImage;
-        height: 600px; }
-      .projects__single-wrapp:nth-child(2) {
-        grid-area: smallImage;
-        margin-bottom: 12px; }
-      .projects__single-wrapp:nth-child(3) {
-        grid-area: smallImage2; }
-      .projects__single-wrapp a {
-        margin: 0; } }
+      margin-bottom: 52px; } }
 
 .project-arch__posts {
   position: relative;

@@ -1,4 +1,3 @@
-
 const focusImage = document.getElementById('js-focus-img'),
   galleryImages = document.querySelectorAll('.js-single-image');
 
