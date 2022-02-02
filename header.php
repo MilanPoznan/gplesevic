@@ -23,6 +23,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+
 <div id="page" class="site">
 
 	<header id="masthead" class="header">
@@ -45,17 +46,11 @@
 			</div>
 		</div>
 	</header><!-- #masthead -->
-
-	<div class="site-animation">
-			<div class="site-animation__logo-wrapper">
-				<div class="site-animation__logo-top">
-					<span class="animation-logo-objects" id="void-v"></span>
-					<span class="animation-logo-objects rotated-object" id="void-o"></span>
-					<span class="animation-logo-objects" id="void-i"></span>
-					<span class="animation-logo-objects" id="void-d"></span>
-				</div>
-				<div class="site-animation__logo-bottom"></div>
+	
+		<!-- <div class="site-animation">
+			<div class="site-animation__img-wrap">
+				<img class="site-animation__img" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-nav.png" />
 			</div>
-		</div>
+		</div>  -->
 	<div id="content" class="site-content">	
 	

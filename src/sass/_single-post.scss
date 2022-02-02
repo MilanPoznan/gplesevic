@@ -43,7 +43,15 @@
     }
     
     .single-post-related {
-    
+        width: 80%;
+        margin: 0 auto;
+        h2 {
+            margin-bottom: 40px;
+        }
+        @include desktop() {
+            width: 100%;
+            margin-bottom: 150px;
+        }
         .related-list {
             list-style: none;
             display: flex;
@@ -53,6 +61,7 @@
             @include desktop() {
                 padding: 0 6px;
                 margin-left: -12px; 
+
             }
     
             li {

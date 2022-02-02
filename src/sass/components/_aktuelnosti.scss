@@ -6,15 +6,29 @@
       text-align: center;
       font-weight: bold;
       letter-spacing: 3.3px;
+      opacity: 0;
+      left: -50px;
+      transition: 0.6s;
+
     }
   }
   &__desc {
     max-width: 80%;
     width: 100%;
+    left: -50px;
     margin: 0 auto 40px;
     text-align: center;
     font-family: $secondaryFont;
+    opacity: 0;
+    transition: 0.6s;
   } 
+  &.open {
+    .aktuelnosti__desc, 
+    h2  {
+      left: 0;
+      opacity: 1;
+    }
+  }
   &__posts {
     display: flex;
     flex-flow: column;
@@ -23,6 +37,7 @@
     h3 {
       letter-spacing: 1.5px;
       margin: 10px 0;
+      color: $blue;
     }
     a {
       text-decoration: none;
@@ -46,6 +61,7 @@
       text-decoration: none;
     }
   }
+  
 }
 
 @include desktop() {
@@ -81,6 +97,8 @@
       top: 0;
       height: 380px;
       overflow: hidden;
+      opacity: 0;
+      transition: 0.5s;
       // transition: 0.5s;
       &:nth-child(3) {
         margin-right: 0px;
@@ -100,7 +118,23 @@
           opacity: 1;
         }
       }
-
+      &--1 {
+        left: -100px;
+      }
+      &--3 {
+        right: -100px;
+      }
+    }
+    &.open {
+      .aktuelnosti__post {
+        opacity: 1;
+        &--1 {
+          left: -0px;
+        }
+        &--3 {
+          right: -0px;
+        }
+      }
     }
     &__post-image {
       height: 380px;

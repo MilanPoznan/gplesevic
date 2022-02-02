@@ -5,7 +5,7 @@
       <div class="aktuelnosti__desc"><?php the_sub_field('description'); ?></div>
     </div>
     <div class="aktuelnosti__posts">
-      <div class="aktuelnosti__post">
+      <div class="aktuelnosti__post aktuelnosti__post--1">
         <?php
           $latest_posts = get_sub_field('latest_posts');
           $latest_posts_id = $latest_posts ->ID;
@@ -25,7 +25,7 @@
           </div>
         </a>
       </div>
-      <div class="aktuelnosti__post">
+      <div class="aktuelnosti__post aktuelnosti__post--2">
       <?php
           $latest_posts2 = get_sub_field('latest_posts_2');
           $latest_posts2_id = $latest_posts2->ID;
@@ -45,7 +45,7 @@
           </div>
         </a>
       </div>
-      <div class="aktuelnosti__post">
+      <div class="aktuelnosti__post aktuelnosti__post--3">
       <?php
           $latest_posts3 = get_sub_field('latest_posts_3');
           $latest_posts3_id = $latest_posts3->ID;

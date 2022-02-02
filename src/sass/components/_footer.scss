@@ -57,7 +57,7 @@
 @include desktop() {
   .footer {
     max-width: 1440px;
-    margin: 0 auto;
+    margin: 80px auto 0;
     &__wrapper {
       justify-content: space-between;
       div {

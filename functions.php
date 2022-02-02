@@ -210,6 +210,7 @@ function create_posttype() {
 			'public' => true,
       'has_archive' => true,
       'show_in_rest' => true,
+			'show_in_graphql' => true,
 			'taxonomies'  => array( 'category' ),
       'supports' => array('title', 'editor', 'thumbnail'),
     )
@@ -298,7 +299,7 @@ function get_latest_projects_niskogradnja() {
 function get_latest_projects_arhitektura() {
 
 	$arhitektura_query = new WP_Query( 
-		array( 'post_type' => 'projects','category_name' => 'arhitektura','posts_per_page' => -1 ) 
+		array( 'post_type' => 'projects', 'category_name' => 'arhitektura','posts_per_page' => -1 ) 
 	);
 	wp_reset_query();
 	return $arhitektura_query;

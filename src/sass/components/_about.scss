@@ -1,6 +1,13 @@
 .about-us {
   position: relative;
   padding: 0 5%;
+  opacity: 0;
+  transition: 0.6s;
+  left: -50px;
+  &.open {
+    opacity: 1;
+    left: 0px;
+  }
   h1 {
     position: relative;
     height: fit-content;
@@ -21,7 +28,7 @@
 @include desktop() {
   .about-us {
     padding: 0;
-    margin-bottom: 100px;
+    margin: 100px auto !important;
     &__wrapper {
       display: flex;
       justify-content: space-between;

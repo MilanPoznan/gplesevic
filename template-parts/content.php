@@ -26,7 +26,8 @@
 		<?php if ( 'post' === get_post_type() ) :
 				?>
 				<div class="post-meta">
-					Datum: <?php the_date('d.m.y.'); ?> u <?php echo get_the_category_list(', '); ?></p>
+					Datum: <?php the_date('d.m.y.'); ?> </p>
+					<!-- Datum: <?php the_date('d.m.y.'); ?> u <?php echo get_the_category_list(', '); ?></p> -->
 				</div><!-- .entry-meta -->
 			<?php endif; 
 		the_content( sprintf(

@@ -2,12 +2,16 @@
 $location = get_field('google_map')
 ?>
   <section class="contact">
-  <section class="hero">
+  <section class="hero hero--no-home">
   <!-- <div class="hero__overlay" style="background-image: url(<?php echo get_template_directory_uri() . '/assets/img/home-page-hero.svg'; ?>)"></div> -->
   <div class="hero__overlay"></div>
   <div class="hero__bg" style="background-image: url('<?php the_field('hero_image'); ?>')"> 
-    <h1>Kontakt</h1>
+    <div class="hero__wrapper">
+      <h1>Kontakt</h1>
+    </div>
   </div>
+  <div class="hero__triangle" style="background-image: url(<?php echo get_template_directory_uri() . '/assets/img/hero-triangle.png'; ?>">
+
 </section>
     <div class="contact__wrapper">
       <div class="contact__cf">

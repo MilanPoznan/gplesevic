@@ -1,11 +1,15 @@
 <?php
 
 get_header(); ?>
-<section class="hero">
+<section class="hero hero--no-home">
   <div class="hero__overlay"></div>
   <div class="hero__bg" style="background-image: url('<?php the_field('aktivnosti_bg'); ?>')"> 
-    <h1>Aktivnosti</h1>
+  <div class="hero__wrapper">
+      <h1>Aktivnosti</h1>
+    </div>
   </div>
+  <div class="hero__triangle" style="background-image: url(<?php echo get_template_directory_uri() . '/assets/img/hero-triangle.png'; ?>">
+
 </section>
 <section class="container container--narrow">
 

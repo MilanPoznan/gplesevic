@@ -18,8 +18,88 @@ function initMap($el) {
 
   // Create gerenic map.
   var mapArgs = {
-    zoom: $el.data('zoom') || 16,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    zoom: $el.data('zoom') || 12,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    styles: [
+      {
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#444444"
+          }
+        ]
+      },
+      {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+          {
+            "color": "#f2f2f2"
+          }
+        ]
+      },
+      {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+          {
+            "saturation": -100
+          },
+          {
+            "lightness": 45
+          }
+        ]
+      },
+      {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+          {
+            "visibility": "simplified"
+          }
+        ]
+      },
+      {
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+          {
+            "color": "#46bcec"
+          },
+          {
+            "visibility": "on"
+          }
+        ]
+      }
+    ]
   };
   var map = new google.maps.Map($el[0], mapArgs);
 
@@ -61,7 +141,7 @@ function initMarker($marker, map) {
   // Create marker instance.
   var marker = new google.maps.Marker({
     position: latLng,
-    map: map
+    map: map,
   });
 
   // Append to reference for later use.

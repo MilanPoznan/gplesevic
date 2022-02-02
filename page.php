@@ -70,7 +70,12 @@ get_header();
 
 				get_template_part('template-parts/projekti', 'component');
 
+			} elseif (get_row_layout() == 'regular_content') {
+
+				get_template_part('template-parts/regular', 'component');
+
 			} 
+			
 		} 
   } 
 ?>

@@ -1,4 +1,4 @@
-<section class="clients">
+<section class="clients" id="klijenti">
   <div class="clients__wrapper">
     <h2><?php the_sub_field('title'); ?></h2>
     <p class="clients__subtitle"><?php the_sub_field('subtitle'); ?></p>

@@ -1,0 +1,9 @@
+.text-content {
+  padding: 40px 5%;
+}
+
+@include desktop() {
+  .text-content {
+    padding: 60px 0%;
+  } 
+}

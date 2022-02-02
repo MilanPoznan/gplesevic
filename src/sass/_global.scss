@@ -1,5 +1,7 @@
 //Global css styles 
-
+html {
+  scroll-behavior: smooth;
+}
 h1 {
 	position: relative;
 	font-size: 34px;
@@ -26,7 +28,8 @@ h1.light {
 h1.post-title {
     font-size: 34px;
     color: $yellow;
-    text-transform: capitalize;
+		text-transform: capitalize;
+		line-height: 42px;
 
     &:after {
         display: none;
