@@ -17,6 +17,12 @@ const myRegexp = /\?(.*)/;
 let currentCategory = myRegexp.exec(currentLocation)
 currentCategory = currentCategory !== null ? currentCategory[1] : 'arhitektura'
 
+const getXXX = async () => await fetch('https://gplesevic.rs/wp-json/wp/v2/projects?_embed&per_page=100')
+  .then(res => res.json())
+  .then(response => console.log(81112, response))
+
+
+
 const getArhitekturaPosts = async () => await fetch('https://gplesevic.rs/wp-json/myprojects/v1/get-projects-arhitektura')
   .then(response => response.json())
   .then(res => res.posts)
@@ -120,23 +126,23 @@ const arhitekturaQuery = {
 
 async function showProjectsOnLoad(category) {
 
-  const res = await fetch('https://gplesevic.rs/graphql', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: `
-          {
-              generalSettings {
-                  url
-              }
-          }
-      `,
-    }),
-  })
-    .then(res => res.json())
-    .then(res => console.log(4444, res.data))
+  // const res = await fetch('https://gplesevic.rs/graphql', {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: JSON.stringify({
+  //     query: `
+  //         {
+  //             generalSettings {
+  //                 url
+  //             }
+  //         }
+  //     `,
+  //   }),
+  // })
+  //   .then(res => res.json())
+  //   .then(res => console.log(4444, res.data))
   //Obrisi sve active classe 
   categoryLink.forEach(item => item.classList.remove("cat-header__link--active"))
 
@@ -145,8 +151,9 @@ async function showProjectsOnLoad(category) {
   niskogradnjaPosts = await getNiskogradnjaPosts()
   visokogradnjaPosts = await getVisokogradnjaPosts()
   arhitekturaPosts = await getArhitekturaPosts()
+  const xxx = await getXXX()
   isLoaded = true
-  console.log(isLoaded);
+  console.log(xxx);
 
   switch (category) {
 
