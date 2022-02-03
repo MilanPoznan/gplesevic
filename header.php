@@ -47,10 +47,6 @@
 		</div>
 	</header><!-- #masthead -->
 	
-		<!-- <div class="site-animation">
-			<div class="site-animation__img-wrap">
-				<img class="site-animation__img" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-nav.png" />
-			</div>
-		</div>  -->
+
 	<div id="content" class="site-content">	
 	

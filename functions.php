@@ -305,6 +305,7 @@ function get_latest_projects_arhitektura() {
 	return $arhitektura_query;
 }
 
+
 //Register REST route for latest posts
 function register_post_rest_route() {
 

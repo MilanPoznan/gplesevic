@@ -11,6 +11,12 @@ const niskogradnjaBox = document.getElementById('project-nisk'),
   visokogradnjaBox = document.getElementById('project-visok'),
   arhitekturaBox = document.getElementById('project-arhit');
 
+
+// dipl states
+let isArhitectDisplayed = false
+let isVisokogradDisplayed = false
+let isNiskogradDisplayed = false
+
 //Category get from url
 const currentLocation = window.location.href
 const myRegexp = /\?(.*)/;
@@ -21,20 +27,19 @@ const getAllProjects = async () => await fetch('https://gplesevic.rs/wp-json/wp/
   .then(res => res.json())
   .then(response => sortProjectsByCategory(response))
 
+let allProjectsGlobal = []
 
+function createSingleProject(item, category) {
 
-
-function createSingleProject(item) {
   const { title, content, link, _embedded } = item
-  // console.log(categories);
-  // const cat = categories[0]
 
   const htmlObject = document.createElement('div');
-  htmlObject.setAttribute('class', `project-box project-box--${cat}`);
+
+  htmlObject.setAttribute('class', `project-box project-box--`);
 
   let featuredMediaUrl = Object.values(_embedded)
   featuredMediaUrl = featuredMediaUrl[0][0].source_url
-  // return (
+
   const finalProject = `<a href="${link}" class="single-project-link">
       <div class="project-box__overlay"></div>
       <img class="" src="${featuredMediaUrl})"/>
@@ -45,21 +50,23 @@ function createSingleProject(item) {
     </a>`;
   htmlObject.innerHTML = finalProject
 
-  // switch (cat) {
+  switch (category) {
+    case 'arhitektura':
+      arhitekturaBox.appendChild(htmlObject)
+      arhitekturaBox.style.display = 'flex';
+      break;
+    case 'niskogradnja':
+      niskogradnjaBox.style.display = 'flex';
+      niskogradnjaBox.appendChild(htmlObject)
+      break;
+    case 'visokogradnja':
+      visokogradnjaBox.style.display = 'flex';
+      visokogradnjaBox.appendChild(htmlObject)
+      break;
+  }
 
-  arhitekturaBox.appendChild(htmlObject)
-  // if (categories.includes(2)) {
-  // }
-  // else if (categories.includes(3)) {
-  //   visokogradnjaBox.appendChild(htmlObject)
-  // }
-  // else if (categories.includes(5)) {
-  //   niskogradnjaBox.appendChild(htmlObject)
-  // }
+
 }
-let arhitekturaPosts = []
-let visokogradnjaPosts = []
-let niskogradnjaPosts = []
 
 
 function showProjects(e) {
@@ -68,31 +75,36 @@ function showProjects(e) {
   e.target.classList.add("cat-header__link--active");
   //Show propper box with posts
   let category = e.target.getAttribute('data-category')
-  console.log(category)
-
-  categoryBoxes.map(item => item.style.opacity = 0)
+  categoryBoxes.map(item => item.style.display = 'none')
+  console.log(allProjectsGlobal);
   switch (category) {
     case 'niskogradnja':
-      niskogradnjaBox.style.opacity = '1'
+      if (!isNiskogradDisplayed) {
+        allProjectsGlobal.niskogradnja.forEach(item => createSingleProject(item, 'niskogradnja'))
+        isNiskogradDisplayed = true
+      }
+      niskogradnjaBox.style.display = 'flex';
       break;
     case 'visokogradnja':
-      visokogradnjaBox.style.opacity = '1'
+      if (!isVisokogradDisplayed) {
+        allProjectsGlobal.visokogradnja.forEach(item => createSingleProject(item, 'visokogradnja'))
+        isVisokogradDisplayed = true
+      }
+      visokogradnjaBox.style.display = 'flex';
       break;
     case 'arhitektura':
-      arhitekturaBox.style.opacity = '1'
+      if (!isArhitectDisplayed) {
+        allProjectsGlobal.arhitektura.forEach(item => createSingleProject(item, 'arhitektura'))
+        isArhitectDisplayed = true
+      }
+      arhitekturaBox.style.display = 'flex';
       break;
   }
 }
 
 let isLoaded = false
 
-
-const arhitekturaQuery = {
-
-}
-
 const sortProjectsByCategory = (arrayProjects) => arrayProjects.reduce((acc, curr) => {
-  console.log(curr);
   if (curr.categories.includes(2)) { //Arhitektura
     acc.arhitektura.push(curr)
   } else if (curr.categories.includes(5)) { //Visokogradnja
@@ -106,54 +118,36 @@ const sortProjectsByCategory = (arrayProjects) => arrayProjects.reduce((acc, cur
 }, { arhitektura: [], niskogradnja: [], visokogradnja: [] })
 
 
+
 async function showProjectsOnLoad(category) {
 
   categoryLink.forEach(item => item.classList.remove("cat-header__link--active"))
 
-  console.log('onLoad', category)
-  console.log(isLoaded);
   const allProjects = await getAllProjects()
-  console.log(allProjects);
+  allProjectsGlobal = allProjects
+
   isLoaded = true
-  console.log(xxx);
 
   switch (category) {
 
     case 'niskogradnja':
-      // arhitekturaBox.appendChild
       catNiskogradnjaBtn.classList.add("cat-header__link--active");
-
+      allProjects.niskogradnja.forEach(item => createSingleProject(item, 'niskogradnja'))
+      isNiskogradDisplayed = true
       break;
-
     case 'visokogradnja':
       catvisokogradnjaBtn.classList.add("cat-header__link--active");
+      allProjects.visokogradnja.forEach(item => createSingleProject(item, 'visokogradnja'))
+      isVisokogradDisplayed = true
       break;
     case 'arhitektura':
-
-      // arhitekturaPosts.forEach(item => createSingleProject(item))
       catArhitehturaBtn.classList.add("cat-header__link--active");
+      allProjects.arhitektura.forEach(item => createSingleProject(item, 'arhitektura'))
+      isArhitectDisplayed = true
       break;
-    default:
-      // arhitekturaPosts.forEach(item => createSingleProject(item))
-      // arhitekturaBox.style.opacity = '1'
-      catArhitehturaBtn.classList.add("cat-header__link--active");
-      break;
-
   }
 }
 
 categoryLink.forEach((item) => item.addEventListener('click', showProjects))
 
 showProjectsOnLoad(currentCategory)
-
-
-// function getAllProjects() {
-//   fetch('https://gplesevic.rs/wp-json/posts?type=projects')
-//     .then(response => response.json())
-//     .then(data => {
-//       console.log('data puller', data);
-//       return data.map(item => createSingleProject(item))
-//     })
-//     .then(() => showProjectsOnLoad(currentCategory))
-// }
-// getAllProjects()
