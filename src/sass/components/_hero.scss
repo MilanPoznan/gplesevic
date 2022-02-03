@@ -2,6 +2,7 @@
   width: 100%;
   height: 70vh;
   position: relative;
+ 
   &__wrapper {
     height: 100%;
     width: 100%;
@@ -60,6 +61,10 @@
     max-width: 80%;
     margin: 0 auto;
   }
+  .white {
+    text-align: center !important;
+    color: #fff !important;
+  }
 }
 
 @include tablet() {
@@ -100,6 +105,9 @@
     &__triangle {
       height: 13vh;
       bottom: -2px;
+    }
+    .white {
+      text-align: left !important;
     }
   }  
 }

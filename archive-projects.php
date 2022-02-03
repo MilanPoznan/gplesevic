@@ -15,7 +15,7 @@ $posts = get_posts([
   <div class="hero__overlay"></div>
   <div class="hero__bg" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/projekti-hero.jpg')"> 
     <div class="hero__wrapper">
-      <h1>Projekti</h1>
+      <h1 class="white">Projekti</h1>
     </div>
   </div>
   <div class="hero__triangle" style="background-image: url(<?php echo get_template_directory_uri() . '/assets/img/hero-triangle.png'; ?>">

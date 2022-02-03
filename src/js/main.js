@@ -84,6 +84,7 @@ function cliebtObserverFn(entries) {
 let observer = new IntersectionObserver(observeFn, observerConfig);
 let clientsObserver = new IntersectionObserver(cliebtObserverFn, observerConfig);
 // const aktuelnostiObserver = new IntersectionObserver()
+console.log(projectHomeSection);
 projectHomeSection && observer.observe(projectHomeSection)
 aboutHomeSection && observer.observe(aboutHomeSection)
 aktuelnostiHomeSection && observer.observe(aktuelnostiHomeSection)

@@ -713,7 +713,7 @@ a {
 
 @media screen and (min-width: 1200px) {
   .clients {
-    padding-bottom: 160px;
+    padding-bottom: 110px;
     background-repeat: no-repeat;
     background-size: cover; }
     .clients__wrapper {
@@ -982,6 +982,9 @@ a {
     z-index: 10;
     max-width: 80%;
     margin: 0 auto; }
+  .hero .white {
+    text-align: center !important;
+    color: #fff !important; }
 
 @media screen and (min-width: 768px) {
   .hero__triangle {
@@ -1011,7 +1014,9 @@ a {
         margin: 0 120px 120px; }
     .hero__triangle {
       height: 13vh;
-      bottom: -2px; } }
+      bottom: -2px; }
+    .hero .white {
+      text-align: left !important; } }
 
 @media screen and (min-width: 1600px) {
   .hero__wrapper {
