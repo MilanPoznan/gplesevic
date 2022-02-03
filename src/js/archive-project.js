@@ -17,44 +17,14 @@ const myRegexp = /\?(.*)/;
 let currentCategory = myRegexp.exec(currentLocation)
 currentCategory = currentCategory !== null ? currentCategory[1] : 'arhitektura'
 
-const getXXX = async () => await fetch('https://gplesevic.rs/wp-json/wp/v2/projects?_embed&per_page=100')
+const getAllProjects = async () => await fetch('https://gplesevic.rs/wp-json/wp/v2/projects?_embed&per_page=100')
   .then(res => res.json())
-  .then(response => console.log(81112, response))
-
-
-
-const getArhitekturaPosts = async () => await fetch('https://gplesevic.rs/wp-json/myprojects/v1/get-projects-arhitektura')
-  .then(response => response.json())
-  .then(res => res.posts)
-
-// console.log(1, arhitekturaPosts);
-
-const getNiskogradnjaPosts = async () => await fetch('https://gplesevic.rs/wp-json/myprojects/v1/get-projects-visokogradnja')
-  .then(response => response.json())
-  .then(res => res.posts)
-
-
-const getVisokogradnjaPosts = async () => await fetch('https://gplesevic.rs/wp-json/myprojects/v1/get-projects-visokogradnja')
-  .then(response => response.json())
-  .then(res => res.posts)
-
-// function getArhitektura() {
-//   fetch('https://gplesevic.rs/wp-json/myprojects/v1/get-projects-arhitektura')
-//     .then(response => response.json())
-//     .then(res => res.posts)
-// }
-
-// function getNiskogradnja() {
-//   fetch('https://gplesevic.rs/wp-json/myprojects/v1/get-projects-niskogradnja')
-//     .then(response => response.json())
-//     .then(res => res.posts)
-// }
+  .then(response => sortProjectsByCategory(response))
 
 
 
 
 function createSingleProject(item) {
-  console.log(item);
   const { title, content, link, _embedded } = item
   // console.log(categories);
   // const cat = categories[0]
@@ -93,9 +63,6 @@ let niskogradnjaPosts = []
 
 
 function showProjects(e) {
-  console.log('ap:', arhitekturaPosts);
-  console.log('np:', visokogradnjaPosts);
-  console.log('vp:', niskogradnjaPosts);
   //Set active class on clickable link
   categoryLink.forEach(item => item.classList.remove("cat-header__link--active"))
   e.target.classList.add("cat-header__link--active");
@@ -124,41 +91,36 @@ const arhitekturaQuery = {
 
 }
 
+const sortProjectsByCategory = (arrayProjects) => arrayProjects.reduce((acc, curr) => {
+  console.log(curr);
+  if (curr.categories.includes(2)) { //Arhitektura
+    acc.arhitektura.push(curr)
+  } else if (curr.categories.includes(5)) { //Visokogradnja
+    acc.visokogradnja.push(curr)
+  } else if (curr.categories.includes(3)) {
+    acc.niskogradnja.push(curr)
+  } else {
+    return acc
+  }
+  return acc
+}, { arhitektura: [], niskogradnja: [], visokogradnja: [] })
+
+
 async function showProjectsOnLoad(category) {
 
-  // const res = await fetch('https://gplesevic.rs/graphql', {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   },
-  //   body: JSON.stringify({
-  //     query: `
-  //         {
-  //             generalSettings {
-  //                 url
-  //             }
-  //         }
-  //     `,
-  //   }),
-  // })
-  //   .then(res => res.json())
-  //   .then(res => console.log(4444, res.data))
-  //Obrisi sve active classe 
   categoryLink.forEach(item => item.classList.remove("cat-header__link--active"))
 
   console.log('onLoad', category)
   console.log(isLoaded);
-  niskogradnjaPosts = await getNiskogradnjaPosts()
-  visokogradnjaPosts = await getVisokogradnjaPosts()
-  arhitekturaPosts = await getArhitekturaPosts()
-  const xxx = await getXXX()
+  const allProjects = await getAllProjects()
+  console.log(allProjects);
   isLoaded = true
   console.log(xxx);
 
   switch (category) {
 
     case 'niskogradnja':
-      arhitekturaBox.appendChild
+      // arhitekturaBox.appendChild
       catNiskogradnjaBtn.classList.add("cat-header__link--active");
 
       break;
@@ -167,12 +129,12 @@ async function showProjectsOnLoad(category) {
       catvisokogradnjaBtn.classList.add("cat-header__link--active");
       break;
     case 'arhitektura':
-      console.log(111, arhitekturaPosts);
-      arhitekturaPosts.forEach(item => createSingleProject(item))
+
+      // arhitekturaPosts.forEach(item => createSingleProject(item))
       catArhitehturaBtn.classList.add("cat-header__link--active");
       break;
     default:
-      arhitekturaPosts.forEach(item => createSingleProject(item))
+      // arhitekturaPosts.forEach(item => createSingleProject(item))
       // arhitekturaBox.style.opacity = '1'
       catArhitehturaBtn.classList.add("cat-header__link--active");
       break;
